@@ -47,8 +47,8 @@ class HelpersTests(TestCase):
         self.assertTrue(codigo.startswith("ECO-"))
         partes = codigo.split("-")
         self.assertEqual(len(partes), 3)
-        self.assertEqual(len(partes[1]), 4)  # año
-        self.assertEqual(len(partes[2]), 5)  # sufijo
+        self.assertEqual(len(partes[1]), 4)  
+        self.assertEqual(len(partes[2]), 5)  
 
     def test_generar_codigo_unico(self):
         """Dos llamadas generan códigos distintos."""
@@ -69,7 +69,7 @@ class HelpersTests(TestCase):
     def test_precio_con_tarifa_remota_cobija(self):
         """Destino Cobija aplica +20% — RF07."""
         precio = calcular_precio(1, self.sucursal_lapaz, self.sucursal_cobija)
-        self.assertEqual(precio, Decimal("24.00"))  # 20 * 1.20
+        self.assertEqual(precio, Decimal("24.00"))  
 
     def test_precio_local_mismo_departamento(self):
         """Mismo departamento = Bs. 8 fijo."""
@@ -106,7 +106,7 @@ class EnvioAPITests(APITestCase):
             ciudad="Santa Cruz", direccion="Av. Test 2",
         )
 
-        # Crear estados
+        
         self.estado_reg = Estado.objects.create(nombre="REGISTRADO", descripcion="Reg", orden=1)
         Estado.objects.create(nombre="EN_TRANSITO", descripcion="Trans", orden=2)
         Estado.objects.create(nombre="EN_SUCURSAL_DESTINO", descripcion="Dest", orden=3)
@@ -148,7 +148,7 @@ class EnvioAPITests(APITestCase):
         }
         response = self.client.post("/api/envios/", data, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        # El campo código se recibe al consultar el detalle
+        
         envio = Envio.objects.first()
         self.assertIsNotNone(envio)
         self.assertTrue(envio.codigo_rastreo.startswith("ECO-"))
@@ -166,7 +166,7 @@ class EnvioAPITests(APITestCase):
             estado_actual=self.estado_reg,
             registrado_por=self.empleado,
         )
-        # Sin token
+        
         self.client.credentials()
         response = self.client.get(f"/api/rastreo/?codigo={envio.codigo_rastreo}")
         self.assertEqual(response.status_code, status.HTTP_200_OK)

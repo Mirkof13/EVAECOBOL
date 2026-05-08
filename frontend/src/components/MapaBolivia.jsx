@@ -1,96 +1,86 @@
-
 import mapaBoliviaImg from "../assets/mapa_bolivia.png"
 
-const INITIAL_DEPARTAMENTOS = [
-  { id: "Cobija",     label: "Pando",      x: "28.26%", y: "12.45%", color: "#22c55e" },
-  { id: "Trinidad",   label: "Beni",       x: "42.32%", y: "30.08%", color: "#06b6d4" },
-  { id: "La Paz",     label: "La Paz",     x: "22.90%", y: "42.58%", color: "#3b82f6" },
-  { id: "Cochabamba", label: "Cochabamba", x: "41.87%", y: "51.51%", color: "#ec4899" },
-  { id: "Santa Cruz", label: "Santa Cruz", x: "68.00%", y: "52.00%", color: "#10b981" },
-  { id: "Oruro",      label: "Oruro",      x: "23.57%", y: "62.45%", color: "#f59e0b" },
-  { id: "Potosi",     label: "Potosí",     x: "29.60%", y: "73.61%", color: "#8b5cf6" },
-  { id: "Sucre",      label: "Chuquisaca", x: "46.79%", y: "70.93%", color: "#6366f1" },
-  { id: "Tarija",     label: "Tarija",     x: "50.13%", y: "84.32%", color: "#ef4444" },
+const DEPARTAMENTOS = [
+  { id: "Pando",      sucId: "Cobija",     left: "19%", top: "8%"  },
+  { id: "Beni",       sucId: "Trinidad",   left: "55%", top: "22%" },
+  { id: "La Paz",     sucId: "La Paz",     left: "16%", top: "40%" },
+  { id: "Cochabamba", sucId: "Cochabamba", left: "36%", top: "54%" },
+  { id: "Santa Cruz", sucId: "Santa Cruz", left: "66%", top: "50%" },
+  { id: "Oruro",      sucId: "Oruro",      left: "19%", top: "58%" },
+  { id: "Potosí",     sucId: "Potosi",     left: "26%", top: "70%" },
+  { id: "Chuquisaca", sucId: "Sucre",      left: "42%", top: "73%" },
+  { id: "Tarija",     sucId: "Tarija",     left: "37%", top: "86%" },
 ]
 
 function heatColor(total, max) {
-  if (!total || !max) return "bg-slate-800 border-slate-700"
+  if (!total || !max) return { bg: "bg-zinc-900/70", text: "text-zinc-400", border: "border-zinc-700/50" }
   const pct = total / max
-  if (pct > 0.7) return "bg-red-900/60 border-red-500/60"
-  if (pct > 0.4) return "bg-amber-900/60 border-amber-500/60"
-  if (pct > 0.1) return "bg-blue-900/60 border-blue-500/60"
-  return "bg-slate-800/80 border-slate-600"
+  if (pct > 0.6) return { bg: "bg-orange-500/30", text: "text-orange-300", border: "border-orange-500/60" }
+  if (pct > 0.3) return { bg: "bg-amber-500/20",  text: "text-amber-300",  border: "border-amber-500/50" }
+  return { bg: "bg-zinc-800/70", text: "text-zinc-300", border: "border-zinc-600/50" }
 }
 
 export default function MapaBolivia({ datos = [] }) {
   const maxTotal = Math.max(...datos.map(d => d.total || 0), 1)
-  
-  const getTotal = (deptId) => {
+
+  const getTotal = (sucId) => {
     const match = datos.find(d =>
-      (d["sucursal_origen__nombre"] || d.nombre || "")
-        .toLowerCase().includes(deptId.toLowerCase())
+      (d["sucursal_origen__nombre"] || "").toLowerCase().includes(sucId.toLowerCase())
     )
     return match?.total ?? 0
   }
 
   return (
     <div className="card">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">
-          Mapa de Bolivia — Carga por Departamento
+      <div className="flex items-center justify-between mb-5">
+        <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider">
+          Mapa de Bolivia — Envíos por Departamento
         </h2>
-        <div className="flex items-center gap-3 text-xs text-slate-500">
-          <span className="flex items-center gap-1">
-            <span className="w-3 h-3 rounded bg-slate-800 border border-slate-600" /> Sin datos
+        <div className="flex items-center gap-3 text-xs text-zinc-500">
+          <span className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-sm bg-zinc-800 border border-zinc-600" /> Sin envíos
           </span>
-          <span className="flex items-center gap-1">
-            <span className="w-3 h-3 rounded bg-blue-900 border border-blue-500" /> Bajo
+          <span className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-sm bg-amber-500/30 border border-amber-500" /> Medio
           </span>
-          <span className="flex items-center gap-1">
-            <span className="w-3 h-3 rounded bg-amber-900 border border-amber-500" /> Medio
-          </span>
-          <span className="flex items-center gap-1">
-            <span className="w-3 h-3 rounded bg-red-900 border border-red-500" /> Alto
+          <span className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-sm bg-orange-500/40 border border-orange-500" /> Alto
           </span>
         </div>
       </div>
-      
-      <div 
-        className="relative w-full max-w-md mx-auto aspect-square bg-slate-800/20 rounded-2xl flex items-center justify-center overflow-hidden border border-slate-800/50"
-      >
-        <img 
-          src={mapaBoliviaImg} 
-          alt="Mapa de Bolivia" 
-          className="w-full h-full object-contain opacity-80 drop-shadow-2xl pointer-events-none" 
+
+      <div className="relative w-full max-w-sm mx-auto select-none" style={{ aspectRatio: "1 / 1.1" }}>
+        <img
+          src={mapaBoliviaImg}
+          alt="Mapa de Bolivia"
+          className="w-full h-full object-contain opacity-80"
+          draggable={false}
         />
-        
-        {INITIAL_DEPARTAMENTOS.map((dept) => {
-          const total = getTotal(dept.id);
+
+        {DEPARTAMENTOS.map((dept) => {
+          const total = getTotal(dept.sucId)
+          const { bg, text, border } = heatColor(total, maxTotal)
           return (
             <div
               key={dept.id}
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group cursor-default"
-              style={{ left: dept.x, top: dept.y }}
-              title="Arrastra para reubicar"
+              className="absolute transform -translate-x-1/2 -translate-y-1/2"
+              style={{ left: dept.left, top: dept.top }}
             >
-              <div 
-                className={`flex flex-col items-center justify-center w-12 h-12 rounded-full border-2 shadow-xl shadow-black/50 backdrop-blur-md transition-all duration-300 group-hover:scale-110 ${heatColor(total, maxTotal)}`}
-                style={{ zIndex: 10 + total }}
-              >
-                <span className="text-sm font-black text-white pointer-events-none">{total}</span>
+              <div className={`${bg} ${border} border rounded-lg px-2 py-1 text-center backdrop-blur-sm shadow-lg transition-all duration-300 hover:scale-110 cursor-default`}>
+                <p className={`text-[9px] font-bold leading-tight ${text}`} style={{ whiteSpace: "nowrap" }}>
+                  {dept.id}
+                </p>
+                <p className={`text-sm font-black leading-none mt-0.5 ${text}`}>
+                  {total}
+                </p>
               </div>
-              <span className="mt-1 px-2 py-0.5 rounded-md bg-slate-900/80 border border-slate-700 text-[10px] font-bold text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity absolute top-full whitespace-nowrap z-20 pointer-events-none">
-                {dept.label}
-              </span>
             </div>
           )
         })}
       </div>
 
       {datos.length === 0 && (
-        <p className="text-center text-slate-600 text-xs mt-4">
-          Sin datos de envíos por departamento.
-        </p>
+        <p className="text-center text-zinc-600 text-xs mt-3">Sin datos de envíos por departamento aún.</p>
       )}
     </div>
   )

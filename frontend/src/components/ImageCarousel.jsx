@@ -1,205 +1,105 @@
-import { useState, useEffect, useCallback } from "react"
-import lapazImg from "../assets/departamentos/lapaz.jpg"
-import santacruzImg from "../assets/departamentos/santacruz.png"
-import cochabambaImg from "../assets/departamentos/cochabamba.png"
-import potosiImg from "../assets/departamentos/potosi.png"
-import chuquisacaImg from "../assets/departamentos/chuquisaca.png"
-import tarijaImg from "../assets/departamentos/tarija.png"
-import beniImg from "../assets/departamentos/beni.png"
-import pandoImg from "../assets/departamentos/pando.png"
-import ecobolLogo from "../assets/logos/ecobol_logo.png"
+import { useState, useEffect } from "react"
+import lapaz      from "../assets/departamentos/lapaz.jpg"
+import santacruz  from "../assets/departamentos/santacruz.png"
+import cochabamba from "../assets/departamentos/cochabamba.png"
+import oruro      from "../assets/departamentos/oruro.png"
+import potosi     from "../assets/departamentos/potosi.png"
+import tarija     from "../assets/departamentos/tarija.png"
+import beni       from "../assets/departamentos/beni.png"
+import pando      from "../assets/departamentos/pando.png"
+import chuquisaca from "../assets/departamentos/chuquisaca.png"
 
 const SLIDES = [
-  {
-    dept: "La Paz",
-    img: lapazImg,
-    sub: "Sede de Gobierno",
-    fact: "La sucursal más alta del mundo, a 3.640 m.s.n.m.",
-    from: "from-blue-950",
-    via: "via-blue-900",
-    to: "to-indigo-950",
-    accent: "text-blue-300",
-    dot: "bg-blue-400",
-  },
-  {
-    dept: "Santa Cruz",
-    img: santacruzImg,
-    sub: "Capital Económica",
-    fact: "Nodo principal de distribución del sistema ECOBOL.",
-    from: "from-emerald-950",
-    via: "via-green-900",
-    to: "to-teal-950",
-    accent: "text-emerald-300",
-    dot: "bg-emerald-400",
-  },
-  {
-    dept: "Cochabamba",
-    img: cochabambaImg,
-    sub: "Ciudad Jardín",
-    fact: "Centro logístico del correo nacional boliviano.",
-    from: "from-rose-950",
-    via: "via-pink-900",
-    to: "to-fuchsia-950",
-    accent: "text-rose-300",
-    dot: "bg-rose-400",
-  },
-  {
-    dept: "Potosí",
-    img: potosiImg,
-    sub: "Villa Imperial",
-    fact: "Punto de distribución para las comunidades mineras.",
-    from: "from-zinc-900",
-    via: "via-stone-800",
-    to: "to-slate-900",
-    accent: "text-zinc-300",
-    dot: "bg-zinc-400",
-  },
-  {
-    dept: "Sucre",
-    img: chuquisacaImg,
-    sub: "Capital Constitucional",
-    fact: "Archivo histórico de correspondencia judicial del país.",
-    from: "from-violet-950",
-    via: "via-purple-900",
-    to: "to-indigo-950",
-    accent: "text-violet-300",
-    dot: "bg-violet-400",
-  },
-  {
-    dept: "Tarija",
-    img: tarijaImg,
-    sub: "Ciudad de los Sauces",
-    fact: "Principal exportador de envíos de productos regionales.",
-    from: "from-red-950",
-    via: "via-rose-900",
-    to: "to-pink-950",
-    accent: "text-red-300",
-    dot: "bg-red-400",
-  },
-  {
-    dept: "Trinidad",
-    img: beniImg,
-    sub: "Capital del Beni",
-    fact: "Servicio aéreo prioritario por acceso fluvial limitado.",
-    from: "from-cyan-950",
-    via: "via-sky-900",
-    to: "to-blue-950",
-    accent: "text-cyan-300",
-    dot: "bg-cyan-400",
-  },
-  {
-    dept: "Cobija",
-    img: pandoImg,
-    sub: "Capital de Pando",
-    fact: "Frontera amazónica — envíos con tarifa especial +20%.",
-    from: "from-lime-950",
-    via: "via-green-900",
-    to: "to-emerald-950",
-    accent: "text-lime-300",
-    dot: "bg-lime-400",
-  },
+  { img: lapaz,      nombre: "La Paz",      desc: "Sede de Gobierno — Capital Administrativa" },
+  { img: santacruz,  nombre: "Santa Cruz",  desc: "Capital Económica de Bolivia" },
+  { img: cochabamba, nombre: "Cochabamba",  desc: "La Ciudad Jardín del Continente" },
+  { img: oruro,      nombre: "Oruro",       desc: "Capital del Folklore Boliviano" },
+  { img: potosi,     nombre: "Potosí",      desc: "Ciudad Imperial — Patrimonio de la Humanidad" },
+  { img: tarija,     nombre: "Tarija",      desc: "Ciudad de los Marqueses" },
+  { img: beni,       nombre: "Beni",        desc: "Corazón de la Amazonía Boliviana" },
+  { img: pando,      nombre: "Pando",       desc: "Puerta a la Selva Amazónica" },
+  { img: chuquisaca, nombre: "Chuquisaca",  desc: "La Ciudad Blanca — Capital Constitucional" },
 ]
+
 export default function ImageCarousel() {
   const [current, setCurrent] = useState(0)
-  const [transitioning, setTransitioning] = useState(false)
-  const goTo = useCallback((index) => {
-    if (transitioning) return
-    setTransitioning(true)
-    setTimeout(() => {
-      setCurrent(index)
-      setTransitioning(false)
-    }, 300)
-  }, [transitioning])
-  const next = useCallback(() => {
-    goTo((current + 1) % SLIDES.length)
-  }, [current, goTo])
-  const prev = useCallback(() => {
-    goTo((current - 1 + SLIDES.length) % SLIDES.length)
-  }, [current, goTo])
+  const [prev, setPrev] = useState(null)
+
   useEffect(() => {
-    const timer = setInterval(next, 4000)
-    return () => clearInterval(timer)
-  }, [next])
-  const slide = SLIDES[current]
+    const t = setInterval(() => {
+      setPrev(current)
+      setCurrent(p => (p + 1) % SLIDES.length)
+    }, 4800)
+    return () => clearInterval(t)
+  }, [current])
+
+  const goTo = (i) => {
+    if (i === current) return
+    setPrev(current)
+    setCurrent(i)
+  }
+
   return (
-    <div className="relative h-full w-full overflow-hidden select-none bg-slate-950">
-      {SLIDES.map((s, i) => (
-        <div 
-          key={i} 
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+    <div className="relative w-full h-full min-h-screen overflow-hidden bg-black">
+      {SLIDES.map((slide, i) => (
+        <div
+          key={i}
+          className="absolute inset-0"
+          style={{
+            opacity: i === current ? 1 : 0,
+            transition: "opacity 1.2s cubic-bezier(0.4,0,0.2,1)",
+            zIndex: i === current ? 1 : 0,
+          }}
         >
-          <img src={s.img} alt={s.dept} className="absolute inset-0 w-full h-full object-cover scale-105" />
-          <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-[2px]" />
-          <div className={`absolute inset-0 bg-gradient-to-br ${s.from} ${s.via} ${s.to} opacity-40 mix-blend-multiply`} />
-        </div>
-      ))}
-      <div className="absolute inset-0 opacity-10 pointer-events-none z-20">
-        <div className="absolute top-8 right-8 w-64 h-64 border border-white rounded-full" />
-        <div className="absolute top-16 right-16 w-48 h-48 border border-white rounded-full" />
-        <div className="absolute bottom-8 left-8 w-48 h-48 border border-white rounded-full" />
-        <div className="absolute bottom-16 left-16 w-32 h-32 border border-white rounded-full" />
-      </div>
-      <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-white/10 blur-3xl animate-pulse-slow z-20 pointer-events-none" />
-      <div className="absolute -bottom-20 -right-20 w-72 h-72 rounded-full bg-white/10 blur-3xl animate-pulse-slow z-20 pointer-events-none"
-        style={{ animationDelay: "2s" }} />
-      <div
-        className={`relative z-30 h-full flex flex-col items-center justify-center px-8 transition-opacity duration-300 ${
-          transitioning ? "opacity-0" : "opacity-100"
-        }`}
-      >
-        <div className="mb-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-4 py-2">
-            <div className="w-6 h-6 flex items-center justify-center">
-              <img src={ecobolLogo} alt="ECOBOL" className="w-full h-full object-contain brightness-0 invert" />
-            </div>
-            <span className="text-white font-semibold text-sm tracking-wide">ECOBOL</span>
+          <img
+            src={slide.img}
+            alt={slide.nombre}
+            className="w-full h-full object-cover"
+            style={{ transform: i === current ? "scale(1.03)" : "scale(1)", transition: "transform 5s ease-out" }}
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+
+
+          <div
+            className="absolute bottom-14 left-8 right-8"
+            style={{
+              opacity: i === current ? 1 : 0,
+              transform: i === current ? "translateY(0)" : "translateY(16px)",
+              transition: "opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s",
+            }}
+          >
+            <p className="text-orange-400 text-xs font-bold uppercase tracking-[0.25em] mb-2">
+              Bolivia · ECOBOL
+            </p>
+            <h2 className="text-5xl font-black text-white leading-tight drop-shadow-lg">
+              {slide.nombre}
+            </h2>
+            <p className="text-zinc-300 text-sm mt-2 font-medium">{slide.desc}</p>
           </div>
         </div>
-        <h2 className="text-5xl font-black text-white text-center drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] leading-tight">
-          {slide.dept}
-        </h2>
-        <p className={`text-sm font-semibold mt-1 ${slide.accent}`}>
-          {slide.sub}
-        </p>
-        <div className="w-12 h-0.5 bg-white/30 my-5 rounded-full" />
-        <p className="text-white/60 text-sm text-center max-w-xs leading-relaxed">
-          {slide.fact}
-        </p>
-        <div className="mt-6 flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 border border-white/10">
-          <span className="text-white/50 text-xs">Sucursal</span>
-          <span className="text-white font-bold text-sm">
-            {current + 1} / {SLIDES.length}
-          </span>
-          <span className="text-white/50 text-xs">de Bolivia</span>
-        </div>
-      </div>
-      <button
-        onClick={prev}
-        className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-black/30 hover:bg-black/50 text-white/80 hover:text-white transition-all duration-200 backdrop-blur-sm border border-white/10"
-        aria-label="Anterior"
-      >
-        ‹
-      </button>
-      <button
-        onClick={next}
-        className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-black/30 hover:bg-black/50 text-white/80 hover:text-white transition-all duration-200 backdrop-blur-sm border border-white/10"
-        aria-label="Siguiente"
-      >
-        ›
-      </button>
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
-        {SLIDES.map((s, i) => (
+      ))}
+
+
+      <div className="absolute bottom-5 right-8 flex gap-1.5 z-10">
+        {SLIDES.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
-            className={`rounded-full transition-all duration-300 ${
-              i === current
-                ? `w-5 h-2 ${slide.dot}`
-                : "w-2 h-2 bg-white/30 hover:bg-white/50"
-            }`}
-            aria-label={`Ir a ${s.dept}`}
+            className="rounded-full transition-all duration-400"
+            style={{
+              width: i === current ? "24px" : "6px",
+              height: "6px",
+              background: i === current ? "#f97316" : "rgba(255,255,255,0.25)",
+            }}
           />
         ))}
+      </div>
+
+
+      <div className="absolute top-8 right-8 z-10 text-xs text-zinc-500 font-mono tabular-nums">
+        {String(current + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")}
       </div>
     </div>
   )

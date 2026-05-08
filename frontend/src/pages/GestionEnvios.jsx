@@ -5,6 +5,7 @@ import ReceiptModal from "../components/ReceiptModal"
 import TimelineHistorial from "../components/TimelineHistorial"
 import api from "../services/api"
 import { useAuth } from "../context/AuthContext"
+import { Printer } from "lucide-react"
 const ESTADOS = ["REGISTRADO", "EN_TRANSITO", "EN_SUCURSAL_DESTINO", "EN_RUTA_ENTREGA", "ENTREGADO", "DEVUELTO"]
 const MEDIA_BASE = import.meta.env.VITE_MEDIA_URL ?? "http://localhost:8000"
 export default function GestionEnvios() {
@@ -229,7 +230,7 @@ export default function GestionEnvios() {
                     onClick={() => setShowReceipt(true)}
                     className="flex-1 btn-primary py-3 flex items-center justify-center gap-2"
                   >
-                    🖨️ Imprimir Recibo
+                    <Printer size={18} /> Imprimir Recibo
                   </button>
                 </div>
               </div>

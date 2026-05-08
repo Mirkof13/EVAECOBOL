@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import api from "../services/api"
 import { useToast } from "../context/ToastContext"
 import { QRCodeSVG } from "qrcode.react"
+import { CheckCircle, Printer, Camera } from "lucide-react"
 export default function ModalNuevoEnvio({ onClose, onSuccess }) {
   const [sucursales, setSucursales] = useState([])
   const [loading, setLoading] = useState(false)
@@ -87,7 +88,7 @@ export default function ModalNuevoEnvio({ onClose, onSuccess }) {
         {envioCreado ? (
           <div className="text-center py-6 animate-slide-up">
             <div className="w-20 h-20 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-6">
-              <span className="text-4xl">✓</span>
+              <CheckCircle size={40} />
             </div>
             <h3 className="text-2xl font-black text-slate-100 mb-2">¡Envío Registrado!</h3>
             <p className="text-slate-400 text-sm mb-8">
@@ -127,8 +128,8 @@ export default function ModalNuevoEnvio({ onClose, onSuccess }) {
               </div>
             </div>
             <div className="flex justify-center gap-4">
-              <button onClick={() => window.print()} className="btn-secondary">
-                <span className="text-lg">🖨️</span> Imprimir Comprobante
+              <button onClick={() => window.print()} className="btn-secondary flex items-center gap-2">
+                <Printer size={18} /> Imprimir Comprobante
               </button>
               <button onClick={onClose} className="btn-primary">
                 Cerrar y Continuar
@@ -245,9 +246,9 @@ export default function ModalNuevoEnvio({ onClose, onSuccess }) {
                     </button>
                   </div>
                 ) : (
-                  <label className="flex flex-col items-center justify-center gap-2 p-6 cursor-pointer">
-                    <span className="text-4xl">📷</span>
-                    <span className="text-sm font-medium text-slate-400">
+                  <label className="flex flex-col items-center justify-center gap-2 p-6 cursor-pointer text-slate-400 hover:text-white transition-colors">
+                    <Camera size={40} className="mb-2" />
+                    <span className="text-sm font-medium">
                       Clic para seleccionar imagen
                     </span>
                     <span className="text-xs text-slate-600">JPG, PNG, WEBP — máx. 5 MB</span>

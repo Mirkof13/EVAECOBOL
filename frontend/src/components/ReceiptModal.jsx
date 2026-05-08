@@ -1,4 +1,5 @@
 import { QRCodeSVG } from "qrcode.react"
+import { Printer } from "lucide-react"
 export default function ReceiptModal({ envio, onClose }) {
   const rastreoUrl = `${window.location.origin}/rastreo?codigo=${envio.codigo_rastreo}`
   const fechaRegistro = new Date(envio.fecha_registro).toLocaleString("es-BO", {
@@ -183,7 +184,7 @@ export default function ReceiptModal({ envio, onClose }) {
             onClick={handlePrint}
             className="flex-1 px-4 py-2.5 rounded-xl bg-blue-700 text-white text-sm font-bold hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
           >
-            🖨️ Imprimir Recibo
+            <Printer size={18} /> Imprimir Recibo
           </button>
         </div>
       </div>

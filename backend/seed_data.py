@@ -7,7 +7,6 @@ import os
 import sys
 import django
 
-# Configurar Django si se ejecuta directamente
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
     django.setup()
@@ -19,7 +18,6 @@ from src.apps.usuarios.models import Usuario
 def seed():
     print("[SEED] Iniciando seed de datos ECOBOL...")
 
-    # ─── 9 Sucursales departamentales ──────────────────────────────────────────
     sucursales_data = [
         ("Sucursal Central La Paz", "La Paz", "La Paz", "Av. Mariscal Santa Cruz 1234", "22123456"),
         ("Sucursal Santa Cruz", "Santa Cruz", "Santa Cruz de la Sierra", "Av. Canoto 567", "33456789"),
@@ -42,7 +40,6 @@ def seed():
         status_str = "CREADA" if created else "ya existe"
         print(f"  Sucursal {status_str}: {nombre}")
 
-    # ─── 6 Estados en orden ────────────────────────────────────────────────────
     estados_data = [
         ("REGISTRADO", "El envio ha sido registrado en el sistema.", 1),
         ("EN_TRANSITO", "El envio esta en camino hacia la sucursal de destino.", 2),
@@ -60,7 +57,6 @@ def seed():
         status_str = "CREADO" if created else "ya existe"
         print(f"  Estado {status_str}: {nombre}")
 
-    # ─── Usuarios de prueba ────────────────────────────────────────────────────
     if not Usuario.objects.filter(email="admin@ecobol.bo").exists():
         Usuario.objects.create_superuser(
             email="admin@ecobol.bo",
@@ -127,7 +123,6 @@ def seed_envios():
     tri  = sucursales["Trinidad"]
     cob  = sucursales["Cobija"]
 
-    # (codigo, remitente, tel_rem, dest, tel_dest, dir_dest, desc, peso, origen, destino, estado, user, obs_extra)
     ENVIOS = [
         ("ECO-2026-A1B2C", "Juan Quispe Mamani", "70012345",
          "Ana Condori Flores", "71234567", "Av. Monseñor Rivero 320, Santa Cruz",
@@ -184,7 +179,6 @@ def seed_envios():
             print(f"  Ya existe: {cod}")
             continue
 
-        # Historial completo según el estado final
         pasos = [REG]
         if estado_final == TRA:   pasos += [TRA]
         elif estado_final == DES:  pasos += [TRA, DES]

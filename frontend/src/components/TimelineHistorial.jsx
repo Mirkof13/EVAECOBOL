@@ -16,12 +16,12 @@ const ICONS_MAP = {
   DEVUELTO: XCircle,
 }
 const COLOR_MAP = {
-  REGISTRADO: "text-blue-500 border-blue-500 shadow-blue-500/30",
-  EN_TRANSITO: "text-amber-500 border-amber-500 shadow-amber-500/30",
-  EN_SUCURSAL_DESTINO: "text-indigo-500 border-indigo-500 shadow-indigo-500/30",
-  EN_RUTA_ENTREGA: "text-purple-500 border-purple-500 shadow-purple-500/30",
-  ENTREGADO: "text-emerald-500 border-emerald-500 shadow-emerald-500/30",
-  DEVUELTO: "text-red-500 border-red-500 shadow-red-500/30",
+  REGISTRADO:          "text-zinc-400 border-zinc-600 shadow-zinc-500/20",
+  EN_TRANSITO:         "text-orange-400 border-orange-500 shadow-orange-500/30",
+  EN_SUCURSAL_DESTINO: "text-amber-400 border-amber-500 shadow-amber-500/30",
+  EN_RUTA_ENTREGA:     "text-yellow-400 border-yellow-500 shadow-yellow-500/30",
+  ENTREGADO:           "text-emerald-400 border-emerald-500 shadow-emerald-500/30",
+  DEVUELTO:            "text-red-400 border-red-500 shadow-red-500/30",
 }
 function formatFecha(isoStr) {
   if (!isoStr) return "—"

@@ -103,8 +103,8 @@ export default function GestionUsuarios() {
       <main className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-slate-100">Gestión de Usuarios</h1>
-            <p className="text-slate-500 text-sm mt-0.5">Administración del personal y roles del sistema</p>
+            <h1 className="text-2xl font-bold text-white">Gestión de Usuarios</h1>
+            <p className="text-zinc-500 text-sm mt-0.5">Administración del personal y roles del sistema</p>
           </div>
           <button onClick={abrirFormNuevo} className="btn-primary">
             + Nuevo Usuario
@@ -135,22 +135,22 @@ export default function GestionUsuarios() {
               <tbody>
                 {usuarios.map((u) => (
                   <tr key={u.id} className="table-row">
-                    <td className="table-cell font-medium text-slate-200">
+                    <td className="table-cell font-medium text-zinc-100">
                       {u.nombre} {u.apellido}
                     </td>
-                    <td className="table-cell text-slate-400">{u.email}</td>
+                    <td className="table-cell text-zinc-400">{u.email}</td>
                     <td className="table-cell">
                       <span className={`badge ${ROL_BADGE[u.rol] || "badge-registrado"}`}>
                         {u.rol}
                       </span>
                     </td>
-                    <td className="table-cell text-slate-400">
+                    <td className="table-cell text-zinc-400">
                       {u.sucursal_detalle?.nombre || "—"}
                     </td>
                     <td className="table-cell text-center">
                       <span className={`badge ${u.activo
                         ? "bg-emerald-900/60 text-emerald-300 border border-emerald-700/50"
-                        : "bg-slate-800 text-slate-500"
+                        : "bg-slate-800 text-zinc-500"
                       }`}>
                         {u.activo ? "Activo" : "Inactivo"}
                       </span>
@@ -180,7 +180,7 @@ export default function GestionUsuarios() {
               </tbody>
             </table>
             {usuarios.length === 0 && (
-              <div className="text-center py-12 text-slate-500 text-sm">
+              <div className="text-center py-12 text-zinc-500 text-sm">
                 No hay usuarios registrados.
               </div>
             )}
@@ -192,7 +192,7 @@ export default function GestionUsuarios() {
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setShowForm(false)} />
           <div className="relative w-full max-w-lg card animate-slide-up">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-bold text-slate-100">
+              <h2 className="text-lg font-bold text-white">
                 {editando ? "Editar Usuario" : "Crear Nuevo Usuario"}
               </h2>
               <button onClick={() => setShowForm(false)} className="btn-ghost w-8 h-8 p-0">✕</button>
@@ -275,7 +275,7 @@ export default function GestionUsuarios() {
                     onChange={(e) => setForm(p => ({ ...p, activo: e.target.checked }))}
                     className="w-4 h-4 accent-blue-600"
                   />
-                  <label htmlFor="activo" className="text-sm text-slate-300">Cuenta activa</label>
+                  <label htmlFor="activo" className="text-sm text-zinc-300">Cuenta activa</label>
                 </div>
               )}
               <div className="flex gap-3 pt-2">

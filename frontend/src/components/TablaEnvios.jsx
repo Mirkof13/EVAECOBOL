@@ -21,7 +21,7 @@ export default function TablaEnvios({ envios = [], onRowClick, loading }) {
         <div className="flex items-center justify-center py-16">
           <div className="flex gap-2">
             {[0,1,2].map(i => (
-              <div key={i} className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"
+              <div key={i} className="w-2 h-2 bg-orange-500 rounded-full animate-bounce"
                 style={{ animationDelay: `${i * 0.15}s` }} />
             ))}
           </div>
@@ -34,7 +34,7 @@ export default function TablaEnvios({ envios = [], onRowClick, loading }) {
       <div className="table-container">
         <div className="flex flex-col items-center justify-center py-16 gap-2">
           <div className="text-slate-600 text-4xl">📦</div>
-          <p className="text-slate-500 text-sm">No se encontraron envios con los filtros seleccionados.</p>
+          <p className="text-zinc-500 text-sm">No se encontraron envios con los filtros seleccionados.</p>
         </div>
       </div>
     )
@@ -63,7 +63,7 @@ export default function TablaEnvios({ envios = [], onRowClick, loading }) {
             >
               <td className="table-cell">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-blue-400 text-xs font-semibold">
+                  <span className="font-mono text-orange-400 text-xs font-semibold">
                     {e.codigo_rastreo}
                   </span>
                   {e.esta_retrasado && (
@@ -75,8 +75,8 @@ export default function TablaEnvios({ envios = [], onRowClick, loading }) {
               </td>
               <td className="table-cell">{e.remitente_nombre}</td>
               <td className="table-cell">{e.destinatario_nombre}</td>
-              <td className="table-cell text-slate-400">{e.sucursal_origen_nombre}</td>
-              <td className="table-cell text-slate-400">{e.sucursal_destino_nombre}</td>
+              <td className="table-cell text-zinc-400">{e.sucursal_origen_nombre}</td>
+              <td className="table-cell text-zinc-400">{e.sucursal_destino_nombre}</td>
               <td className="table-cell">
                 <span className={`badge ${BADGE_MAP[e.estado_actual_nombre] || "badge-registrado"}`}>
                   {e.estado_actual_nombre?.replace(/_/g, " ")}
@@ -85,7 +85,7 @@ export default function TablaEnvios({ envios = [], onRowClick, loading }) {
               <td className="table-cell text-right font-semibold text-emerald-400">
                 Bs. {parseFloat(e.precio_bs).toFixed(2)}
               </td>
-              <td className="table-cell text-xs text-slate-500">
+              <td className="table-cell text-xs text-zinc-500">
                 {formatFecha(e.fecha_registro)}
               </td>
             </tr>
