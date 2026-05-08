@@ -1,8 +1,18 @@
 import { useState, useEffect, useCallback } from "react"
+import lapazImg from "../assets/departamentos/lapaz.jpg"
+import santacruzImg from "../assets/departamentos/santacruz.png"
+import cochabambaImg from "../assets/departamentos/cochabamba.png"
+import potosiImg from "../assets/departamentos/potosi.png"
+import chuquisacaImg from "../assets/departamentos/chuquisaca.png"
+import tarijaImg from "../assets/departamentos/tarija.png"
+import beniImg from "../assets/departamentos/beni.png"
+import pandoImg from "../assets/departamentos/pando.png"
+import ecobolLogo from "../assets/logos/ecobol_logo.png"
+
 const SLIDES = [
   {
     dept: "La Paz",
-    icon: "🏔️",
+    img: lapazImg,
     sub: "Sede de Gobierno",
     fact: "La sucursal más alta del mundo, a 3.640 m.s.n.m.",
     from: "from-blue-950",
@@ -13,7 +23,7 @@ const SLIDES = [
   },
   {
     dept: "Santa Cruz",
-    icon: "🌿",
+    img: santacruzImg,
     sub: "Capital Económica",
     fact: "Nodo principal de distribución del sistema ECOBOL.",
     from: "from-emerald-950",
@@ -24,7 +34,7 @@ const SLIDES = [
   },
   {
     dept: "Cochabamba",
-    icon: "🌸",
+    img: cochabambaImg,
     sub: "Ciudad Jardín",
     fact: "Centro logístico del correo nacional boliviano.",
     from: "from-rose-950",
@@ -34,19 +44,8 @@ const SLIDES = [
     dot: "bg-rose-400",
   },
   {
-    dept: "Oruro",
-    icon: "🎭",
-    sub: "Capital del Folklore",
-    fact: "Ruta crítica de tránsito entre norte y sur del país.",
-    from: "from-amber-950",
-    via: "via-orange-900",
-    to: "to-yellow-950",
-    accent: "text-amber-300",
-    dot: "bg-amber-400",
-  },
-  {
     dept: "Potosí",
-    icon: "⛰️",
+    img: potosiImg,
     sub: "Villa Imperial",
     fact: "Punto de distribución para las comunidades mineras.",
     from: "from-zinc-900",
@@ -57,7 +56,7 @@ const SLIDES = [
   },
   {
     dept: "Sucre",
-    icon: "⚖️",
+    img: chuquisacaImg,
     sub: "Capital Constitucional",
     fact: "Archivo histórico de correspondencia judicial del país.",
     from: "from-violet-950",
@@ -68,7 +67,7 @@ const SLIDES = [
   },
   {
     dept: "Tarija",
-    icon: "🍇",
+    img: tarijaImg,
     sub: "Ciudad de los Sauces",
     fact: "Principal exportador de envíos de productos regionales.",
     from: "from-red-950",
@@ -79,7 +78,7 @@ const SLIDES = [
   },
   {
     dept: "Trinidad",
-    icon: "🦜",
+    img: beniImg,
     sub: "Capital del Beni",
     fact: "Servicio aéreo prioritario por acceso fluvial limitado.",
     from: "from-cyan-950",
@@ -90,7 +89,7 @@ const SLIDES = [
   },
   {
     dept: "Cobija",
-    icon: "🌳",
+    img: pandoImg,
     sub: "Capital de Pando",
     fact: "Frontera amazónica — envíos con tarifa especial +20%.",
     from: "from-lime-950",
@@ -123,36 +122,40 @@ export default function ImageCarousel() {
   }, [next])
   const slide = SLIDES[current]
   return (
-    <div className="relative h-full w-full overflow-hidden select-none">
-      <div
-        className={`absolute inset-0 bg-gradient-to-br ${slide.from} ${slide.via} ${slide.to} transition-all duration-700`}
-      />
-      <div className="absolute inset-0 opacity-5">
+    <div className="relative h-full w-full overflow-hidden select-none bg-slate-950">
+      {SLIDES.map((s, i) => (
+        <div 
+          key={i} 
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+        >
+          <img src={s.img} alt={s.dept} className="absolute inset-0 w-full h-full object-cover scale-105" />
+          <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-[2px]" />
+          <div className={`absolute inset-0 bg-gradient-to-br ${s.from} ${s.via} ${s.to} opacity-40 mix-blend-multiply`} />
+        </div>
+      ))}
+      <div className="absolute inset-0 opacity-10 pointer-events-none z-20">
         <div className="absolute top-8 right-8 w-64 h-64 border border-white rounded-full" />
         <div className="absolute top-16 right-16 w-48 h-48 border border-white rounded-full" />
         <div className="absolute bottom-8 left-8 w-48 h-48 border border-white rounded-full" />
         <div className="absolute bottom-16 left-16 w-32 h-32 border border-white rounded-full" />
       </div>
-      <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-white/5 blur-3xl animate-pulse-slow" />
-      <div className="absolute -bottom-20 -right-20 w-72 h-72 rounded-full bg-white/5 blur-3xl animate-pulse-slow"
+      <div className="absolute -top-20 -left-20 w-72 h-72 rounded-full bg-white/10 blur-3xl animate-pulse-slow z-20 pointer-events-none" />
+      <div className="absolute -bottom-20 -right-20 w-72 h-72 rounded-full bg-white/10 blur-3xl animate-pulse-slow z-20 pointer-events-none"
         style={{ animationDelay: "2s" }} />
       <div
-        className={`relative z-10 h-full flex flex-col items-center justify-center px-8 transition-opacity duration-300 ${
+        className={`relative z-30 h-full flex flex-col items-center justify-center px-8 transition-opacity duration-300 ${
           transitioning ? "opacity-0" : "opacity-100"
         }`}
       >
         <div className="mb-8 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-4 py-2">
-            <div className="w-6 h-6 bg-white/90 rounded-lg flex items-center justify-center">
-              <span className="text-slate-900 font-black text-xs">E</span>
+            <div className="w-6 h-6 flex items-center justify-center">
+              <img src={ecobolLogo} alt="ECOBOL" className="w-full h-full object-contain brightness-0 invert" />
             </div>
-            <span className="text-white/90 font-semibold text-sm tracking-wide">ECOBOL</span>
+            <span className="text-white font-semibold text-sm tracking-wide">ECOBOL</span>
           </div>
         </div>
-        <div className="text-7xl mb-4 drop-shadow-2xl animate-float">
-          {slide.icon}
-        </div>
-        <h2 className="text-4xl font-black text-white text-center drop-shadow-lg leading-tight">
+        <h2 className="text-5xl font-black text-white text-center drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] leading-tight">
           {slide.dept}
         </h2>
         <p className={`text-sm font-semibold mt-1 ${slide.accent}`}>

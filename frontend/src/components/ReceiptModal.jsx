@@ -98,7 +98,7 @@ export default function ReceiptModal({ envio, onClose }) {
     }
   }
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
       <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden animate-bounce-in">
         <div className="bg-blue-700 text-white px-6 py-4 flex items-center justify-between">

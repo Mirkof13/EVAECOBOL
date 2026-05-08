@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
 import { useToast } from "../context/ToastContext"
 import ImageCarousel from "../components/ImageCarousel"
+import ecobolLogo from "../assets/logos/ecobol_logo.png"
+
 export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -45,10 +47,10 @@ export default function Login() {
         </div>
         <div className="relative w-full max-w-md animate-slide-up">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl mb-4 shadow-2xl shadow-blue-500/30">
-              <span className="text-white font-black text-2xl">E</span>
+            <div className="flex justify-center mb-4">
+              <img src={ecobolLogo} alt="ECOBOL Logo" className="h-24 object-contain drop-shadow-2xl" />
             </div>
-            <h1 className="text-3xl font-black text-slate-100">ECOBOL</h1>
+            <h1 className="text-3xl font-black text-slate-100 mt-2">ECOBOL</h1>
             <p className="text-slate-400 mt-1 text-sm">Agencia Boliviana de Correos</p>
           </div>
           <div className="card-glass">

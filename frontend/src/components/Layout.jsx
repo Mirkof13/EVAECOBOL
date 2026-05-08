@@ -15,6 +15,9 @@ import {
   ChevronLeft,
   ChevronRight
 } from "lucide-react"
+
+import ecobolLogo from "../assets/logos/ecobol_logo.png"
+
 export default function Layout({ children }) {
   const { usuario, logout } = useAuth()
   const location = useLocation()
@@ -67,8 +70,8 @@ export default function Layout({ children }) {
       >
         <div className="h-16 flex items-center px-4 lg:px-6 border-b border-slate-800">
           <div className={`flex items-center gap-3 transition-opacity duration-300 ${isCollapsed ? "lg:opacity-0 lg:w-0 overflow-hidden" : "opacity-100"}`}>
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/20 flex-shrink-0">
-              <span className="text-white font-bold text-sm">E</span>
+            <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
+              <img src={ecobolLogo} alt="ECOBOL Logo" className="w-full h-full object-contain" />
             </div>
             <span className="font-bold text-slate-100 text-sm tracking-wide whitespace-nowrap">ECOBOL</span>
           </div>
