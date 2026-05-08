@@ -11,13 +11,16 @@ import {
   X,
   Search,
   User,
-  Bell
+  Bell,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react"
 export default function Layout({ children }) {
   const { usuario, logout } = useAuth()
   const location = useLocation()
   const navigate = useNavigate()
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [isCollapsed, setIsCollapsed] = useState(false)
   if (!usuario) return children
   const handleLogout = () => {
     logout()
@@ -59,18 +62,24 @@ export default function Layout({ children }) {
         />
       )}
       <aside 
-        className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-slate-900 border-r border-slate-800 flex flex-col transition-transform duration-300 ease-in-out
+        className={`fixed lg:static inset-y-0 left-0 z-50 ${isCollapsed ? "lg:w-20" : "lg:w-64"} bg-slate-900 border-r border-slate-800 flex flex-col transition-all duration-300 ease-in-out
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}
       >
-        <div className="h-16 flex items-center px-6 border-b border-slate-800">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/20">
+        <div className="h-16 flex items-center px-4 lg:px-6 border-b border-slate-800">
+          <div className={`flex items-center gap-3 transition-opacity duration-300 ${isCollapsed ? "lg:opacity-0 lg:w-0 overflow-hidden" : "opacity-100"}`}>
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/20 flex-shrink-0">
               <span className="text-white font-bold text-sm">E</span>
             </div>
-            <div>
-              <span className="font-bold text-slate-100 text-sm tracking-wide">ECOBOL</span>
-            </div>
+            <span className="font-bold text-slate-100 text-sm tracking-wide whitespace-nowrap">ECOBOL</span>
           </div>
+          
+          <button 
+            onClick={() => setIsCollapsed(!isCollapsed)}
+            className="hidden lg:flex ml-auto p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+          >
+            {isCollapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
+          </button>
+
           <button 
             className="ml-auto lg:hidden text-slate-400 hover:text-white"
             onClick={() => setSidebarOpen(false)}
@@ -78,30 +87,29 @@ export default function Layout({ children }) {
             <X size={20} />
           </button>
         </div>
-        <div className="p-6 border-b border-slate-800">
+
+        <div className={`p-4 lg:p-6 border-b border-slate-800 transition-all duration-300 ${isCollapsed ? "lg:px-4" : ""}`}>
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center border-2 border-slate-700 overflow-hidden relative group">
-              <User className="text-slate-400 group-hover:hidden transition-all" size={24} />
+            <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-slate-800 flex items-center justify-center border-2 border-slate-700 overflow-hidden relative group flex-shrink-0">
+              <User className="text-slate-400 group-hover:hidden transition-all" size={20} />
               <img 
                 src={`https://api.dicebear.com/7.x/initials/svg?seed=${usuario.nombre} ${usuario.apellido}&backgroundColor=1e3a8a`} 
                 alt="Avatar" 
                 className="absolute inset-0 w-full h-full object-cover hidden group-hover:block transition-all animate-fade-in"
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-semibold text-slate-200">
+            <div className={`flex flex-col transition-opacity duration-300 ${isCollapsed ? "lg:opacity-0 lg:w-0 overflow-hidden" : "opacity-100"}`}>
+              <span className="text-sm font-semibold text-slate-200 whitespace-nowrap">
                 {usuario.nombre}
               </span>
               <span className="text-xs text-slate-500 truncate w-32">
                 {usuario.email}
               </span>
-              <span className="badge badge-registrado mt-1 self-start scale-90 origin-left">
-                {usuario.rol}
-              </span>
             </div>
           </div>
         </div>
-        <nav className="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+
+        <nav className="flex-1 px-3 lg:px-4 py-6 space-y-1 overflow-y-auto">
           {navLinks.map((item) => {
             const active = location.pathname === item.path
             return (
@@ -113,21 +121,26 @@ export default function Layout({ children }) {
                   ${active 
                     ? "bg-blue-600/10 text-blue-400 border border-blue-500/20 shadow-sm" 
                     : "text-slate-400 hover:bg-slate-800/50 hover:text-slate-200"
-                  }`}
+                  } ${isCollapsed ? "lg:justify-center" : ""}`}
               >
-                <item.icon size={18} className={active ? "text-blue-500" : "text-slate-500"} />
-                {item.title}
+                <item.icon size={18} className={`${active ? "text-blue-500" : "text-slate-500"} flex-shrink-0`} />
+                <span className={`transition-opacity duration-300 ${isCollapsed ? "lg:opacity-0 lg:w-0 overflow-hidden" : "opacity-100"}`}>
+                  {item.title}
+                </span>
               </Link>
             )
           })}
         </nav>
+
         <div className="p-4 border-t border-slate-800">
           <button
             onClick={handleLogout}
-            className="flex items-center gap-3 w-full px-3 py-2.5 text-sm font-medium text-slate-400 hover:text-red-400 hover:bg-red-900/20 rounded-xl transition-all duration-200"
+            className={`flex items-center gap-3 w-full px-3 py-2.5 text-sm font-medium text-slate-400 hover:text-red-400 hover:bg-red-900/20 rounded-xl transition-all duration-200 ${isCollapsed ? "lg:justify-center" : ""}`}
           >
-            <LogOut size={18} />
-            Cerrar Sesion
+            <LogOut size={18} className="flex-shrink-0" />
+            <span className={`transition-opacity duration-300 ${isCollapsed ? "lg:opacity-0 lg:w-0 overflow-hidden" : "opacity-100"}`}>
+              Cerrar Sesion
+            </span>
           </button>
         </div>
       </aside>
@@ -157,10 +170,10 @@ export default function Layout({ children }) {
             </button>
           </div>
         </header>
-        <main className="flex-1 overflow-y-auto p-4 lg:p-8 relative">
+        <main className="flex-1 overflow-y-auto p-4 lg:p-8">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-600/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="relative z-10 animate-fade-in">
+          <div>
             {children}
           </div>
         </main>

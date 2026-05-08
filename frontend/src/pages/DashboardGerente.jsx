@@ -192,7 +192,7 @@ export default function DashboardGerente() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-2xl font-bold text-slate-100">Panel de Control</h1>
-            <p className="text-slate-500 text-sm mt-0.5">Estadísticas en tiempo real
+            <p className="text-slate-500 text-sm mt-0.5">Estadísticas en tiempo real</p>
           </div>
           <button
             onClick={() => window.location.reload()}
@@ -253,7 +253,7 @@ export default function DashboardGerente() {
           <MapaBolivia datos={stats.por_sucursal} />
         </div>
         <div className="card">
-          <h2 className="font-semibold text-slate-200 mb-1">Exportar Reporte CSV
+          <h2 className="font-semibold text-slate-200 mb-1">Exportar Reporte CSV</h2>
           <p className="text-slate-500 text-sm mb-5">
             Filtra y descarga el reporte de envíos en formato CSV compatible con Excel.
           </p>

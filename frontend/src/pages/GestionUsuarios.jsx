@@ -104,7 +104,7 @@ export default function GestionUsuarios() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-2xl font-bold text-slate-100">Gestión de Usuarios</h1>
-            <p className="text-slate-500 text-sm mt-0.5">RF10 — Solo accesible para ADMIN</p>
+            <p className="text-slate-500 text-sm mt-0.5">Administración del personal y roles del sistema</p>
           </div>
           <button onClick={abrirFormNuevo} className="btn-primary">
             + Nuevo Usuario

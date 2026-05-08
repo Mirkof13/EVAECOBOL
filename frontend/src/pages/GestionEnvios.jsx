@@ -156,6 +156,7 @@ export default function GestionEnvios() {
           </div>
         )}
       </main>
+
       {showReceipt && envioSeleccionado && (
         <ReceiptModal
           envio={envioSeleccionado}
@@ -171,76 +172,88 @@ export default function GestionEnvios() {
           }}
         />
       )}
+      
       {envioSeleccionado && (
-        <div className="fixed inset-0 z-50 flex justify-end">
+        <div className="fixed inset-0 z-[9999] flex justify-end">
           <div
             className="absolute inset-0 bg-black/60 backdrop-blur-sm"
             onClick={() => setEnvioSeleccionado(null)}
           />
-          <div className="relative w-full max-w-md bg-slate-900 border-l border-slate-800 h-full overflow-y-auto p-6 animate-slide-up">
-            <div className="flex items-center justify-between mb-6">
+          <div className="relative w-full max-w-md bg-slate-900 border-l border-slate-800 h-screen overflow-y-auto shadow-2xl animate-slide-left flex flex-col">
+            <div className="sticky top-0 z-20 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 p-6 flex items-center justify-between flex-shrink-0">
               <div>
-                <p className="font-mono text-blue-400 font-bold text-lg">
+                <p className="font-mono text-blue-400 font-bold text-xl leading-none">
                   {envioSeleccionado.codigo_rastreo}
                 </p>
-                <p className="text-sm text-slate-400">Detalle del envio</p>
+                <p className="text-xs text-slate-500 mt-1 uppercase tracking-widest font-semibold">Detalle del envio</p>
               </div>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setShowReceipt(true)}
-                  className="text-xs px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-medium transition-colors flex items-center gap-1.5"
-                  title="Imprimir recibo con QR"
-                >
-                  🖨️ Recibo
-                </button>
-                <button onClick={() => setEnvioSeleccionado(null)} className="btn-ghost">✕</button>
-              </div>
+              <button 
+                onClick={() => setEnvioSeleccionado(null)} 
+                className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-all"
+              >
+                ✕
+              </button>
             </div>
-            <div className="space-y-4 text-sm mb-6">
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <p className="text-slate-500 text-xs uppercase">Remitente</p>
-                  <p className="text-slate-200">{envioSeleccionado.remitente_nombre}</p>
-                  <p className="text-slate-400 text-xs">{envioSeleccionado.remitente_telefono}</p>
+            
+            <div className="flex-1 overflow-y-auto">
+              <div className="p-6 space-y-8">
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <p className="text-slate-500 text-xs uppercase">Remitente</p>
+                    <p className="text-slate-200">{envioSeleccionado.remitente_nombre}</p>
+                    <p className="text-slate-400 text-xs">{envioSeleccionado.remitente_telefono}</p>
+                  </div>
+                  <div>
+                    <p className="text-slate-500 text-xs uppercase">Destinatario</p>
+                    <p className="text-slate-200">{envioSeleccionado.destinatario_nombre}</p>
+                    <p className="text-slate-400 text-xs">{envioSeleccionado.destinatario_telefono}</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <p className="text-slate-500 text-xs uppercase">Peso</p>
+                    <p className="text-slate-200">{envioSeleccionado.peso_kg} kg</p>
+                  </div>
+                  <div>
+                    <p className="text-slate-500 text-xs uppercase">Precio</p>
+                    <p className="text-emerald-400 font-bold">Bs. {parseFloat(envioSeleccionado.precio_bs).toFixed(2)}</p>
+                  </div>
                 </div>
                 <div>
-                  <p className="text-slate-500 text-xs uppercase">Destinatario</p>
-                  <p className="text-slate-200">{envioSeleccionado.destinatario_nombre}</p>
-                  <p className="text-slate-400 text-xs">{envioSeleccionado.destinatario_telefono}</p>
+                  <p className="text-slate-500 text-xs uppercase">Descripción</p>
+                  <p className="text-slate-300">{envioSeleccionado.descripcion || "Sin descripción"}</p>
+                </div>
+
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => setShowReceipt(true)}
+                    className="flex-1 btn-primary py-3 flex items-center justify-center gap-2"
+                  >
+                    🖨️ Imprimir Recibo
+                  </button>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <p className="text-slate-500 text-xs uppercase">Peso</p>
-                  <p className="text-slate-200">{envioSeleccionado.peso_kg} kg</p>
+
+              <div className="px-6 pb-8 space-y-8">
+                {envioSeleccionado.foto_envio && (
+                  <div className="border-t border-slate-800 pt-8">
+                    <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
+                      Foto del Envío
+                    </h3>
+                    <img
+                      src={`${MEDIA_BASE}${envioSeleccionado.foto_envio}`}
+                      alt="Foto del envío"
+                      className="w-full rounded-2xl object-cover max-h-64 border border-slate-700 shadow-xl"
+                    />
+                  </div>
+                )}
+                <div className="border-t border-slate-800 pt-8">
+                  <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-6">
+                    Historial de Estados
+                  </h3>
+                  <TimelineHistorial historial={envioSeleccionado.historial || []} />
                 </div>
-                <div>
-                  <p className="text-slate-500 text-xs uppercase">Precio</p>
-                  <p className="text-emerald-400 font-bold">Bs. {parseFloat(envioSeleccionado.precio_bs).toFixed(2)}</p>
-                </div>
               </div>
-              <div>
-                <p className="text-slate-500 text-xs uppercase">Descripcion</p>
-                <p className="text-slate-300">{envioSeleccionado.descripcion}</p>
-              </div>
-            </div>
-            {envioSeleccionado.foto_envio && (
-              <div className="border-t border-slate-800 pt-5 mb-5">
-                <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
-                  Foto del Envío
-                </h3>
-                <img
-                  src={`${MEDIA_BASE}${envioSeleccionado.foto_envio}`}
-                  alt="Foto del envío"
-                  className="w-full rounded-xl object-cover max-h-52 border border-slate-700"
-                />
-              </div>
-            )}
-            <div className="border-t border-slate-800 pt-5">
-              <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
-                Historial de Estados
-              </h3>
-              <TimelineHistorial historial={envioSeleccionado.historial || []} />
             </div>
           </div>
         </div>

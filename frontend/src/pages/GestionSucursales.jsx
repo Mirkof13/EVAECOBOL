@@ -92,7 +92,7 @@ export default function GestionSucursales() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-bold text-slate-100">Gestión de Sucursales</h1>
-          <p className="text-slate-500 text-sm mt-0.5">UC09 — 9 departamentos de Bolivia</p>
+          <p className="text-slate-500 text-sm mt-0.5">Gestión de oficinas y centros de distribución</p>
         </div>
         <button onClick={abrirFormNuevo} className="btn-primary">
           + Nueva Sucursal
