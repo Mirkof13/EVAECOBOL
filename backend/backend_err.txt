@@ -1,0 +1,115 @@
+Watching for file changes with StatReloader
+Not Found: /
+[06/May/2026 16:30:03] "GET / HTTP/1.1" 404 2598
+Not Found: /favicon.ico
+[06/May/2026 16:30:03] "GET /favicon.ico HTTP/1.1" 404 2649
+Not Found: /api/rastreo/
+[06/May/2026 16:31:02] "GET /api/rastreo/?codigo=TEST HTTP/1.1" 404 73
+[06/May/2026 16:31:03,051] - Broken pipe from ('127.0.0.1', 60212)
+[06/May/2026 16:31:19] "POST /api/auth/token/ HTTP/1.1" 200 664
+[06/May/2026 16:31:19,346] - Broken pipe from ('127.0.0.1', 60226)
+[06/May/2026 16:31:31] "POST /api/auth/token/ HTTP/1.1" 200 664
+[06/May/2026 16:31:31] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:31:31,188] - Broken pipe from ('127.0.0.1', 60241)
+[06/May/2026 16:32:22] "POST /api/auth/token/ HTTP/1.1" 200 664
+[06/May/2026 16:32:23] "POST /api/envios/ HTTP/1.1" 201 338
+[06/May/2026 16:32:23,050] - Broken pipe from ('127.0.0.1', 60268)
+[06/May/2026 16:32:35] "POST /api/auth/token/ HTTP/1.1" 200 664
+[06/May/2026 16:32:35] "GET /api/envios/ HTTP/1.1" 200 410
+[06/May/2026 16:32:35] "GET /api/rastreo/?codigo=ECO-2026-EA825 HTTP/1.1" 200 1185
+[06/May/2026 16:32:35,893] - Broken pipe from ('127.0.0.1', 52824)
+[06/May/2026 16:34:07] "POST /api/auth/token/ HTTP/1.1" 200 664
+[06/May/2026 16:34:07] "GET /api/envios/ HTTP/1.1" 200 410
+[06/May/2026 16:34:07] "PATCH /api/envios/1/estado/ HTTP/1.1" 200 1414
+[06/May/2026 16:34:07,243] - Broken pipe from ('127.0.0.1', 52869)
+[06/May/2026 16:35:50] "POST /api/auth/token/ HTTP/1.1" 200 604
+[06/May/2026 16:35:50] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:35:50] "GET /api/reportes/csv/ HTTP/1.1" 200 391
+[06/May/2026 16:35:50,406] - Broken pipe from ('127.0.0.1', 61776)
+[06/May/2026 16:37:25] "POST /api/auth/token/ HTTP/1.1" 200 607
+[06/May/2026 16:37:25] "GET /api/usuarios/ HTTP/1.1" 200 965
+[06/May/2026 16:37:25,479] - Broken pipe from ('127.0.0.1', 55128)
+[06/May/2026 16:38:14] "OPTIONS /api/auth/token/ HTTP/1.1" 200 0
+[06/May/2026 16:38:14] "POST /api/auth/token/ HTTP/1.1" 200 607
+[06/May/2026 16:38:14] "OPTIONS /api/usuarios/ HTTP/1.1" 200 0
+[06/May/2026 16:38:14] "OPTIONS /api/sucursales/ HTTP/1.1" 200 0
+[06/May/2026 16:38:14] "OPTIONS /api/usuarios/ HTTP/1.1" 200 0
+[06/May/2026 16:38:14] "OPTIONS /api/sucursales/ HTTP/1.1" 200 0
+[06/May/2026 16:38:14] "GET /api/usuarios/ HTTP/1.1" 200 965
+[06/May/2026 16:38:14] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:14] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:14] "GET /api/usuarios/ HTTP/1.1" 200 965
+[06/May/2026 16:38:18] "OPTIONS /api/envios/? HTTP/1.1" 200 0
+[06/May/2026 16:38:18] "OPTIONS /api/envios/? HTTP/1.1" 200 0
+[06/May/2026 16:38:18] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:18] "GET /api/envios/? HTTP/1.1" 200 411
+[06/May/2026 16:38:18] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:18] "GET /api/envios/? HTTP/1.1" 200 411
+[06/May/2026 16:38:20] "OPTIONS /api/estadisticas/ HTTP/1.1" 200 0
+[06/May/2026 16:38:20] "OPTIONS /api/estadisticas/ HTTP/1.1" 200 0
+[06/May/2026 16:38:20] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:20] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:20] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:38:20] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:38:21] "GET /api/usuarios/ HTTP/1.1" 200 965
+[06/May/2026 16:38:21] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:21] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:21] "GET /api/usuarios/ HTTP/1.1" 200 965
+[06/May/2026 16:38:23] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:23] "GET /api/envios/? HTTP/1.1" 200 411
+[06/May/2026 16:38:23] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:23] "GET /api/envios/? HTTP/1.1" 200 411
+[06/May/2026 16:38:27] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:27] "GET /api/usuarios/ HTTP/1.1" 200 965
+[06/May/2026 16:38:27] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:27] "GET /api/usuarios/ HTTP/1.1" 200 965
+[06/May/2026 16:38:27] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:27] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:38:27] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:38:28] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:43:24] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:43:24] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:43:24] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:43:24] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:44:28] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:44:28] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:44:28] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:44:28] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:50:41] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:50:41] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:50:41] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:50:41] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:50:51] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:50:51] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:50:51] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:50:51] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:50:56] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:50:56] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:50:56] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:50:56] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:51:15] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:51:15] "GET /api/sucursales/ HTTP/1.1" 200 1385
+[06/May/2026 16:51:15] "GET /api/estadisticas/ HTTP/1.1" 200 216
+[06/May/2026 16:51:15] "GET /api/sucursales/ HTTP/1.1" 200 1385
+C:\Users\Artemis\Desktop\atermis laptop\software II\evaluacion procesuaa\backend\config\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Artemis\Desktop\atermis laptop\software II\evaluacion procesuaa\backend\config\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Artemis\Desktop\atermis laptop\software II\evaluacion procesuaa\backend\src\apps\envios\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Artemis\Desktop\atermis laptop\software II\evaluacion procesuaa\backend\src\apps\envios\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Artemis\Desktop\atermis laptop\software II\evaluacion procesuaa\backend\src\apps\envios\serializers.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Artemis\Desktop\atermis laptop\software II\evaluacion procesuaa\backend\src\apps\envios\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Artemis\Desktop\atermis laptop\software II\evaluacion procesuaa\backend\src\apps\envios\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Artemis\Desktop\atermis laptop\software II\evaluacion procesuaa\backend\src\apps\envios\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Artemis\Desktop\atermis laptop\software II\evaluacion procesuaa\backend\src\apps\envios\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Artemis\Desktop\atermis laptop\software II\evaluacion procesuaa\backend\src\apps\envios\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\Artemis\Desktop\atermis laptop\software II\evaluacion procesuaa\backend\src\apps\reportes\views.py changed, reloading.
+Watching for file changes with StatReloader

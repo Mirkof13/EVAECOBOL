@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-05-04T05:07:23Z" agent="ChatGPT" version="24.7.17" type="device">
+  <diagram id="UC03_-_Registrar_nuevo_envío" name="UC03 - Registrar nuevo envío">
+    <mxGraphModel dx="1300" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0b0f17;strokeColor=#0b0f17;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="0" y="0" width="1600" height="1000"/>
+        </mxCell>
+        <mxCell id="boundary" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#111111;strokeColor=#cbd5e1;strokeWidth=2;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="260" y="40" width="1200" height="880"/>
+        </mxCell>
+        <mxCell id="title" value="Sistema ECOBOL&lt;br&gt;&lt;b&gt;UC03 - Registrar nuevo envío&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="500" y="50" width="760" height="55"/>
+        </mxCell>
+        <mxCell id="actor_operador" value="Operador de&lt;br&gt;Sucursal" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;whiteSpace=wrap;fontSize=13;fontStyle=1;strokeColor=#ffffff;fillColor=#111111;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="55" y="280" width="95" height="130"/>
+        </mxCell>
+        <mxCell id="uc_main" value="UC03&lt;br&gt;Registrar nuevo&lt;br&gt;envío" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=#93c5fd;strokeWidth=2;fontSize=15;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="520" y="105" width="280" height="95"/>
+        </mxCell>
+        <mxCell id="inc0" value="UC02 Iniciar sesión&lt;br&gt;en el sistema" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="520" y="220" width="280" height="72"/>
+        </mxCell>
+        <mxCell id="inc1" value="Abrir módulo&lt;br&gt;Nuevo Envío" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="520" y="315" width="280" height="72"/>
+        </mxCell>
+        <mxCell id="inc2" value="Registrar datos del&lt;br&gt;remitente" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="520" y="410" width="280" height="72"/>
+        </mxCell>
+        <mxCell id="inc3" value="Registrar datos del&lt;br&gt;destinatario" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="520" y="505" width="280" height="72"/>
+        </mxCell>
+        <mxCell id="inc4" value="Ingresar peso,&lt;br&gt;dimensiones y destino" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="520" y="600" width="280" height="72"/>
+        </mxCell>
+        <mxCell id="inc5" value="Calcular tarifa del&lt;br&gt;envío" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="520" y="695" width="280" height="72"/>
+        </mxCell>
+        <mxCell id="inc6" value="Confirmar pago y&lt;br&gt;guardar registro" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="520" y="790" width="280" height="72"/>
+        </mxCell>
+        <mxCell id="inc7" value="Generar código de&lt;br&gt;rastreo único" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="955" y="410" width="280" height="72"/>
+        </mxCell>
+        <mxCell id="inc8" value="Registrar envío con&lt;br&gt;estado &quot;Recepcionado&quot;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="955" y="505" width="280" height="72"/>
+        </mxCell>
+        <mxCell id="inc9" value="Emitir comprobante&lt;br&gt;para el cliente" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="955" y="600" width="280" height="72"/>
+        </mxCell>
+        <mxCell id="ext1" value="Mostrar datos&lt;br&gt;incompletos" style="ellipse;whiteSpace=wrap;html=1;fillColor=#3a2208;strokeColor=#f59e0b;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1255" y="450" width="230" height="70"/>
+        </mxCell>
+        <mxCell id="ext2" value="Notificar sucursal de&lt;br&gt;destino inactiva" style="ellipse;whiteSpace=wrap;html=1;fillColor=#3a2208;strokeColor=#f59e0b;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1255" y="700" width="230" height="78"/>
+        </mxCell>
+        <mxCell id="assoc_main" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#e5e7eb;strokeWidth=2;" edge="1" parent="1" source="actor_operador" target="uc_main">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="150" y="345"/>
+              <mxPoint x="360" y="150"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="assoc_fill" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#e5e7eb;strokeWidth=2;" edge="1" parent="1" source="actor_operador" target="inc2">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="150" y="345"/>
+              <mxPoint x="360" y="446"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="assoc_pay" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#e5e7eb;strokeWidth=2;" edge="1" parent="1" source="actor_operador" target="inc6">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="150" y="345"/>
+              <mxPoint x="360" y="826"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iv1" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc0">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="660" y="200"/>
+              <mxPoint x="660" y="220"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iv2" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc1">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="660" y="200"/>
+              <mxPoint x="660" y="315"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iv3" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc2">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="660" y="200"/>
+              <mxPoint x="660" y="410"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iv4" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc3">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="660" y="200"/>
+              <mxPoint x="660" y="505"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iv5" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc4">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="660" y="200"/>
+              <mxPoint x="660" y="600"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iv6" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc5">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="660" y="200"/>
+              <mxPoint x="660" y="695"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iv7" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc6">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="660" y="200"/>
+              <mxPoint x="660" y="790"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ih1" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc7">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="800" y="455"/>
+              <mxPoint x="955" y="446"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ih2" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc8">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="800" y="550"/>
+              <mxPoint x="955" y="541"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ih3" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc9">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="800" y="645"/>
+              <mxPoint x="955" y="636"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ex1" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#f59e0b;strokeWidth=2;fontColor=#fbbf24;fontSize=12;" edge="1" parent="1" source="ext1" target="inc2">
+          <mxGeometry as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="ex2" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#f59e0b;strokeWidth=2;fontColor=#fbbf24;fontSize=12;" edge="1" parent="1" source="ext2" target="inc5">
+          <mxGeometry as="geometry" relative="1"/>
+        </mxCell>
+        <mxCell id="note" value="&lt;b&gt;Especificación resumida&lt;/b&gt;&lt;br&gt;Actor principal: Operador de Sucursal.&lt;br&gt;Precondición: el operador ya inició sesión (UC02).&lt;br&gt;Flujo: abrir Nuevo Envío, completar remitente y destinatario, ingresar peso/dimensiones/destino, calcular tarifa, confirmar pago, guardar, generar código, registrar estado Recepcionado y emitir comprobante.&lt;br&gt;Excepciones: campos obligatorios incompletos y sucursal destino temporalmente inactiva.&lt;br&gt;Postcondición: el envío queda registrado y listo para rastreo." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f1b06;strokeColor=#eab308;strokeWidth=1;fontSize=12;align=left;spacing=8;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="300" y="925" width="1140" height="70"/>
+        </mxCell>
+        <mxCell id="ex1c" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#f59e0b;strokeWidth=2;fontColor=#fbbf24;fontSize=12;" edge="1" parent="1" source="ext1" target="inc3">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1255" y="485"/>
+              <mxPoint x="1125" y="485"/>
+              <mxPoint x="1125" y="541"/>
+              <mxPoint x="800" y="541"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,42 @@
+# ── Python / Django ────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.eggs/
+*.log
+
+# Archivos sensibles
+.env
+*.env.local
+
+# Base de datos SQLite (desarrollo local)
+*.sqlite3
+*.db
+
+# Media (fotos de envíos — no subir binarios al repo)
+backend/media/
+
+# ── Node / React ──────────────────────────────────────────────────────────
+node_modules/
+frontend/dist/
+frontend/.vite/
+.npm
+
+# ── IDEs ──────────────────────────────────────────────────────────────────
+.vscode/settings.local.json
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Documentos temporales ─────────────────────────────────────────────────
+~$*.docx
+~$*.xlsx

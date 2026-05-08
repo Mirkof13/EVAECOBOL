@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-05-04T00:00:00Z" agent="ChatGPT" version="24.7.17" type="device">
+  <diagram id="UC02CORREGIDO" name="UC02 - Iniciar sesion en el sistema">
+    <mxGraphModel dx="1365" dy="767" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0b0f17;strokeColor=#0b0f17;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="1600" height="1000" as="geometry" />
+        </mxCell>
+
+        <mxCell id="title" value="Sistema ECOBOL&#xa;UC02 - Iniciar sesion en el sistema" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=22;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="500" y="20" width="600" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="boundary" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#101010;strokeColor=#cbd5e1;strokeWidth=2;arcSize=10;" vertex="1" parent="1">
+          <mxGeometry x="280" y="70" width="1180" height="860" as="geometry" />
+        </mxCell>
+
+        <!-- Actores primarios a la izquierda -->
+        <mxCell id="actor_operador" value="Operador de&#xa;Sucursal" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;whiteSpace=wrap;fontSize=13;fontStyle=1;strokeColor=#ffffff;fillColor=#101010;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="220" width="90" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_gerente" value="Gerente&#xa;General" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;whiteSpace=wrap;fontSize=13;fontStyle=1;strokeColor=#ffffff;fillColor=#101010;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="410" width="90" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_admin" value="Administrador&#xa;del Sistema" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;whiteSpace=wrap;fontSize=13;fontStyle=1;strokeColor=#ffffff;fillColor=#101010;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="35" y="600" width="100" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Caso principal -->
+        <mxCell id="uc_main" value="UC02&#xa;Iniciar sesion&#xa;en el sistema" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1e293b;strokeColor=#93c5fd;strokeWidth=2;fontSize=15;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="410" y="130" width="280" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Includes visibles y conectados -->
+        <mxCell id="inc1" value="Mostrar formulario&#xa;de ingreso" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="760" y="120" width="280" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="inc2" value="Capturar usuario y&#xa;contrasena" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="760" y="210" width="280" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="inc3" value="Validar campos&#xa;obligatorios" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="760" y="300" width="280" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="inc4" value="Validar&#xa;credenciales" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="760" y="390" width="280" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="inc5" value="Verificar cuenta&#xa;activa" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="760" y="480" width="280" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="inc6" value="Identificar rol y&#xa;permisos" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="760" y="570" width="280" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="inc7" value="Crear sesion segura&#xa;y registrar auditoria" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="760" y="660" width="280" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="inc8" value="Redirigir al panel&#xa;segun rol" style="ellipse;whiteSpace=wrap;html=1;fillColor=#16331f;strokeColor=#65a30d;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="760" y="750" width="280" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- Extends -->
+        <mxCell id="ext1" value="Mostrar mensaje&#xa;campos vacios" style="ellipse;whiteSpace=wrap;html=1;fillColor=#3a2208;strokeColor=#f59e0b;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="300" width="250" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="ext2" value="Mostrar error de&#xa;credenciales" style="ellipse;whiteSpace=wrap;html=1;fillColor=#3a2208;strokeColor=#f59e0b;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="390" width="250" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="ext3" value="Mostrar cuenta&#xa;inactiva o suspendida" style="ellipse;whiteSpace=wrap;html=1;fillColor=#3a2208;strokeColor=#f59e0b;strokeWidth=2;fontSize=13;fontStyle=1;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="480" width="250" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- Asociaciones de actores -->
+        <mxCell id="a1" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#e5e7eb;strokeWidth=2;" edge="1" parent="1" source="actor_operador" target="uc_main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#e5e7eb;strokeWidth=2;" edge="1" parent="1" source="actor_gerente" target="uc_main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" value="" style="endArrow=none;html=1;rounded=0;strokeColor=#e5e7eb;strokeWidth=2;" edge="1" parent="1" source="actor_admin" target="uc_main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Includes desde UC02 -->
+        <mxCell id="i1" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i2" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i3" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i4" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i5" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i6" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i7" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="i8" value="&lt;&lt;include&gt;&gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#84cc16;strokeWidth=2;fontColor=#a3e635;fontSize=12;" edge="1" parent="1" source="uc_main" target="inc8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Extends hacia el punto correcto -->
+        <mxCell id="e1" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#f59e0b;strokeWidth=2;fontColor=#fbbf24;fontSize=12;" edge="1" parent="1" source="ext1" target="inc3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#f59e0b;strokeWidth=2;fontColor=#fbbf24;fontSize=12;" edge="1" parent="1" source="ext2" target="inc4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="&lt;&lt;extend&gt;&gt;" style="endArrow=open;endFill=0;dashed=1;html=1;rounded=0;strokeColor=#f59e0b;strokeWidth=2;fontColor=#fbbf24;fontSize=12;" edge="1" parent="1" source="ext3" target="inc5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note" value="Actores: Operador de Sucursal, Gerente General y Administrador del Sistema.&#xa;Precondicion: el usuario existe, esta activo y accede al portal administrativo.&#xa;Flujo principal: mostrar login, capturar credenciales, validar campos, validar credenciales, verificar cuenta, identificar rol, crear sesion segura y redirigir al panel correspondiente.&#xa;Postcondicion: sesion abierta y acceso habilitado segun rol." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1f1b06;strokeColor=#eab308;strokeWidth=1;fontSize=12;align=left;spacing=8;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="320" y="835" width="1080" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

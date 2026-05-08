@@ -1,0 +1,63 @@
+[MASTER]
+# Archivos y carpetas a ignorar
+ignore=venv,migrations,__pycache__,.env,tests
+ignore-patterns=.*_test\.py,test_.*\.py
+
+# Número de procesos paralelos (0 = auto)
+jobs=1
+
+[MESSAGES CONTROL]
+# Deshabilitar advertencias que generan falsos positivos en proyectos Django
+disable=
+    C0111,
+    C0114,
+    C0115,
+    C0116,
+    R0903,
+    W0611,
+    E1101,
+    W0212,
+    R0801,
+    C0103
+
+# Habilitar explícitamente: duplicación de código, complejidad, importaciones
+enable=
+    W0401,
+    R0201,
+    C0301
+
+[FORMAT]
+# PEP 8: máximo 120 caracteres por línea en proyectos Django
+max-line-length=120
+indent-string='    '
+indent-after-paren=4
+expected-line-ending-format=
+
+[DESIGN]
+max-args=7
+max-attributes=12
+max-bool-expr=5
+max-branches=12
+max-locals=15
+max-returns=6
+max-statements=60
+min-public-methods=1
+
+[SIMILARITIES]
+# Detectar código duplicado (Code Smell: Duplicated Code)
+min-similarity-lines=6
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=yes
+
+[BASIC]
+# Variables de 1-2 chars permitidas (comunes en Django: pk, id, qs)
+good-names=i,j,k,e,f,s,pk,id,qs,dt,df,cls,app
+
+[IMPORTS]
+# Detectar importaciones no usadas
+allow-wildcard-with-all=no
+
+[REFACTORING]
+# Número máximo de condiciones anidadas antes de sugerir refactorización
+max-nested-blocks=4
